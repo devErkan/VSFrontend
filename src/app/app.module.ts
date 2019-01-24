@@ -8,6 +8,12 @@ import { ToDoListeComponent } from './to-do-liste/to-do-liste.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule, MatInputModule } from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
 
@@ -41,6 +47,14 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

@@ -1,3 +1,33 @@
-<p>
-  to-do-liste works!
-</p>
+<mat-accordion>
+  <mat-expansion-panel  *ngFor="let item of toDoList">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ item.id }}. {{ item.aufgabe.aufgabe }}
+      </mat-panel-title>
+      <!--
+      <mat-panel-description>
+        Aufgabe bearbeiten
+      </mat-panel-description>
+      -->
+      <button class="delete-button" (click)="deleteItem($event, item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-expansion-panel-header>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Beschreibung" [value]="item.aufgabe.beschreibung"></textarea>
+    </mat-form-field>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<form [formGroup]="form" (ngSubmit)="addListItem(form.value)">
+  <mat-form-field>
+    <input matInput placeholder="Name" name="aufgabe" formControlName="aufgabe">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Beschreibung" name="beschreibung" formControlName="beschreibung"></textarea>
+  </mat-form-field>
+
+  <button mat-stroked-button color="primary" type="submit">Aufgabe hinzufügen</button>
+</form>
